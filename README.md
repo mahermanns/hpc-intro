@@ -228,7 +228,7 @@ provided to help guide planning and decision-making.
    * Profiling code - time, size, etc.
    * Getting system stats
    * Consequences of going over
-   
+
 ### Nascent lesson ideas for Parallel Novice
 
 1. Filesystems and Storage: objectives likely include items from @psteinb's
