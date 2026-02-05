@@ -186,6 +186,8 @@ as large. But these numbers change, e.g., depending on the network connection
 of yourself and of your cluster or other factors.
 :::
 
+
+
 The real work on a cluster gets done by the *worker* (or *compute*) *nodes*.
 Worker nodes come in many shapes and sizes, but generally are dedicated to long
 or hard tasks that require a lot of computational resources.
