@@ -1,0 +1,3 @@
+[submodule "episodes/files/customization/RWTH_Claix_Slurm"]
+	path = episodes/files/customization/RWTH_Claix_Slurm
+	url = https://github.com/mahermanns/rwth-claix-slurm.git
