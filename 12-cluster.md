@@ -5,6 +5,10 @@ exercises: 10
 ---
 
 
+``` error
+Error in `load_yaml_config()`:
+! YAML file not found: episodes/files/customization/RWTH_Claix_Slurm/_config_options.yml
+```
 
 ::: questions
 - "What is an HPC system?"
@@ -204,11 +208,9 @@ For example, we can view all of the worker nodes by running the command
 ```
 
 
-```output
-PARTITION          AVAIL  TIMELIMIT  NODES  STATE NODELIST
-cpubase_bycore_b1*    up   infinite      4   idle node[1-2],smnode[1-2]
-node                  up   infinite      2   idle node[1-2]
-smnode                up   infinite      2   idle smnode[1-2]
+``` error
+Error in `snippets()`:
+! snippets() called before configuration was loaded.
 ```
 
 There are also specialized machines used for managing disk storage, user
@@ -324,18 +326,10 @@ This is an important point to remember: files saved on one node
 :::
 
 
-::: challenge
-
-## Explore a Worker Node
-
-Finally, let's look at the resources available on the worker nodes
-where your jobs will actually run. Try running this command to see
-the name, CPUs and memory available on one of the worker nodes:
-
-```bash
-[yourUsername@login1 ~]$ sinfo -o "%n %c %m" | column -t
+``` error
+Error in `snippets()`:
+! snippets() called before configuration was loaded.
 ```
-:::
 
 ::: discussion
 ## Compare Your Computer, the login node and the compute node

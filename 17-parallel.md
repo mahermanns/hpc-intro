@@ -5,6 +5,10 @@ exercises: 60
 ---
 
 
+``` error
+Error in `load_yaml_config()`:
+! YAML file not found: episodes/files/customization/RWTH_Claix_Slurm/_config_options.yml
+```
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
@@ -165,27 +169,9 @@ tell us the important flags we might want to use when launching it.
 Create a submission file, requesting one task on a single node, then launch it.
 
 
-```bash
-[yourUsername@login1 ~]$ nano serial-job.sh
-[yourUsername@login1 ~]$ cat serial-job.sh
-```
-
-```bash
-#!/bin/bash
-#SBATCH -J solo-job
-#SBATCH -p cpubase_bycore_b1
-#SBATCH -N 1
-#SBATCH -n 1
-
-# Load the computing environment we need
-module load Python
-
-# Execute the task
-amdahl
-```
-
-```bash
-[yourUsername@login1 ~]$ sbatch serial-job.sh
+``` error
+Error in `snippets()`:
+! snippets() called before configuration was loaded.
 ```
 
 As before, use the Slurm status commands to check whether your job
@@ -286,61 +272,9 @@ by examining the environment variables set when the job is launched.
 Let's modify the job script to request more cores and use the MPI run-time.
 
 
-```bash
-[yourUsername@login1 ~]$ cp serial-job.sh parallel-job.sh
-[yourUsername@login1 ~]$ nano parallel-job.sh
-[yourUsername@login1 ~]$ cat parallel-job.sh
-```
-
-```bash
-#!/bin/bash
-#SBATCH -J parallel-job
-#SBATCH -p cpubase_bycore_b1
-#SBATCH -N 1
-#SBATCH -n 4
-
-# Load the computing environment we need
-# (mpi4py and numpy are in SciPy-bundle)
-module load Python
-module load SciPy-bundle
-
-# Execute the task
-mpiexec amdahl
-```
-
-Then submit your job. Note that the submission command has not really changed
-from how we submitted the serial job: all the parallel settings are in the
-batch file rather than the command line.
-
-```bash
-[yourUsername@login1 ~]$ sbatch parallel-job.sh
-```
-
-As before, use the status commands to check when your job runs.
-
-```bash
-[yourUsername@login1 ~]$ ls -t
-```
-
-```output
-slurm-347178.out  parallel-job.sh  slurm-347087.out  serial-job.sh  amdahl  README.md  LICENSE.txt
-```
-
-```bash
-[yourUsername@login1 ~]$ cat slurm-347178.out
-```
-
-```output
-Doing 30.000 seconds of 'work' on 4 processors,
-which should take 10.875 seconds with 0.850 parallel proportion of the workload.
-
-  Hello, World! I am process 0 of 4 on smnode1. I will do all the serial 'work' for 4.500 seconds.
-  Hello, World! I am process 2 of 4 on smnode1. I will do parallel 'work' for 6.375 seconds.
-  Hello, World! I am process 1 of 4 on smnode1. I will do parallel 'work' for 6.375 seconds.
-  Hello, World! I am process 3 of 4 on smnode1. I will do parallel 'work' for 6.375 seconds.
-  Hello, World! I am process 0 of 4 on smnode1. I will do parallel 'work' for 6.375 seconds.
-
-Total execution time (according to rank 0): 10.888 seconds
+``` error
+Error in `snippets()`:
+! snippets() called before configuration was loaded.
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -404,63 +338,9 @@ Let's run one more job, so we can see how close to a straight line our `amdahl`
 code gets.
 
 
-```bash
-[yourUsername@login1 ~]$ nano parallel-job.sh
-[yourUsername@login1 ~]$ cat parallel-job.sh
-```
-
-```bash
-#!/bin/bash
-#SBATCH -J parallel-job
-#SBATCH -p cpubase_bycore_b1
-#SBATCH -N 1
-#SBATCH -n 8
-
-# Load the computing environment we need
-# (mpi4py and numpy are in SciPy-bundle)
-module load Python
-module load SciPy-bundle
-
-# Execute the task
-mpiexec amdahl
-```
-
-Then submit your job. Note that the submission command has not really changed
-from how we submitted the serial job: all the parallel settings are in the
-batch file rather than the command line.
-
-```bash
-[yourUsername@login1 ~]$ sbatch parallel-job.sh
-```
-
-As before, use the status commands to check when your job runs.
-
-```bash
-[yourUsername@login1 ~]$ ls -t
-```
-
-```output
-slurm-347271.out  parallel-job.sh  slurm-347178.out  slurm-347087.out  serial-job.sh  amdahl  README.md  LICENSE.txt
-```
-
-```bash
-[yourUsername@login1 ~]$ cat slurm-347178.out
-```
-
-```output
-which should take 7.688 seconds with 0.850 parallel proportion of the workload.
-
-  Hello, World! I am process 4 of 8 on smnode1. I will do parallel 'work' for 3.188 seconds.
-  Hello, World! I am process 0 of 8 on smnode1. I will do all the serial 'work' for 4.500 seconds.
-  Hello, World! I am process 2 of 8 on smnode1. I will do parallel 'work' for 3.188 seconds.
-  Hello, World! I am process 1 of 8 on smnode1. I will do parallel 'work' for 3.188 seconds.
-  Hello, World! I am process 3 of 8 on smnode1. I will do parallel 'work' for 3.188 seconds.
-  Hello, World! I am process 5 of 8 on smnode1. I will do parallel 'work' for 3.188 seconds.
-  Hello, World! I am process 6 of 8 on smnode1. I will do parallel 'work' for 3.188 seconds.
-  Hello, World! I am process 7 of 8 on smnode1. I will do parallel 'work' for 3.188 seconds.
-  Hello, World! I am process 0 of 8 on smnode1. I will do parallel 'work' for 3.188 seconds.
-
-Total execution time (according to rank 0): 7.697 seconds
+``` error
+Error in `snippets()`:
+! snippets() called before configuration was loaded.
 ```
 
 ::::::::::::::::::::::::::::::::::::::  discussion

@@ -5,6 +5,10 @@ exercises: 15
 ---
 
 
+``` error
+Error in `load_yaml_config()`:
+! YAML file not found: episodes/files/customization/RWTH_Claix_Slurm/_config_options.yml
+```
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 

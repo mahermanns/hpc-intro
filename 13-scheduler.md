@@ -5,6 +5,10 @@ exercises: 30
 ---
 
 
+``` error
+Error in `load_yaml_config()`:
+! YAML file not found: episodes/files/customization/RWTH_Claix_Slurm/_config_options.yml
+```
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
@@ -115,8 +119,9 @@ available to perform the work.
 ```
 
 
-```output
-Submitted batch job 7
+``` error
+Error in `snippets()`:
+! snippets() called before configuration was loaded.
 ```
 
 And that's all we need to do to submit a job. Our work is done -- now the
